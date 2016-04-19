@@ -1,0 +1,69 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url 'http://repo.enonic.com/public'
+        }
+    }
+
+    dependencies {
+        classpath "com.enonic.xp:gradle-plugin:${xpVersion}"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+    }
+}
+
+
+apply plugin: 'maven'
+apply plugin: 'com.enonic.xp.app'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'idea'
+
+app {
+    name = project.appName
+    displayName = project.displayName
+    vendorName = 'Runar Brastad'
+    vendorUrl = 'http://rbrastad.no'
+}
+
+dependencies {
+    compile "com.enonic.xp:core-api:${xpVersion}"
+    compile "com.enonic.xp:portal-api:${xpVersion}"
+    compile "com.enonic.xp:lib-content:${xpVersion}"
+    compile "com.enonic.xp:lib-portal:${xpVersion}"
+    compile "com.enonic.xp:lib-thymeleaf:${xpVersion}"
+    compile "com.enonic.xp:lib-mail:${xpVersion}"
+    compile "com.enonic.lib:util:1.1.1"
+    compile "com.enonic.lib:menu:1.1.1"
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven {
+        url 'http://repo.enonic.com/public'
+    }
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    pkg {
+        repo = 'XP'
+        name = project.appName
+        userOrg = 'rbrastad'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/rbrastad/lib2render.git'
+        githubReleaseNotesFile = 'README.md' //Optional Github readme file
+        githubRepo = 'rbrastad/lib2render' //Optional Github repository
+
+        version {
+            name = project.version
+            released = new Date()
+            configurations = ['archives']
+        }
+    }
+}
