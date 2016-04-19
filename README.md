@@ -1,4 +1,4 @@
-# 2 render LIB
+# lib2render
 
 ## Copyright and license
 
