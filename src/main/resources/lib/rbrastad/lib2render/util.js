@@ -34,6 +34,13 @@ exports.getServiceUrl = function(module, service){
 }
 
 
+exports.getAssetUrl = function( path ){
+    return portal.assetUrl({
+        path: path
+    });
+}
+
+
 exports.getImageUrl = function( imageId, scaleling ){
     return portal.imageUrl( {
         id: imageId,
