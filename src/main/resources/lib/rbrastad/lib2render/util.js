@@ -41,7 +41,7 @@ exports.getAssetUrl = function( path ){
 }
 
 exports.getAssetScriptUrl = function( path ){
-    return '<script type="text/javascript" src="' + exports.getAssetUrl( path ) + '"/>';
+    return '<script type="text/javascript" src="' + exports.getAssetUrl( path ) + '"></script>';
 }
 
 exports.getImageUrl = function( imageId, scaleling ){
