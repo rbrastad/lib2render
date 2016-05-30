@@ -41,7 +41,7 @@ exports.getAssetUrl = function( path ){
 }
 
 exports.getAssetScriptUrl = function( path ){
-    return '<script type="text/javascript" asynch="true" src="' + exports.getAssetUrl('js/qacode.js') + '"/>';
+    return '<script type="text/javascript" src="' + exports.getAssetUrl( path ) + '"/>';
 }
 
 exports.getImageUrl = function( imageId, scaleling ){
