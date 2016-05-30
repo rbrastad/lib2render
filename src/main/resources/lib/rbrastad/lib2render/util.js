@@ -40,6 +40,9 @@ exports.getAssetUrl = function( path ){
     });
 }
 
+exports.getAssetScriptUrl = function( path ){
+    return '<script type="text/javascript" asynch="true" src="' + exports.getAssetUrl('js/qacode.js') + '"/>';
+}
 
 exports.getImageUrl = function( imageId, scaleling ){
     return portal.imageUrl( {
