@@ -17,7 +17,7 @@ exports.getContent = function() {
 
 exports.resolveContentCurrentComponent = function(){
     return content2.resolveContentCurrentComponent();
-}
+};
 
 
 exports.resolveComponentContent = function() {
@@ -28,7 +28,7 @@ exports.render = function( view, model ){
     return {
         body: thymeleaf.render(view, model)
     };
-}
+};
 
 exports.renderView = function(viewSrc, content) {
     return exports.render(resolve( viewSrc ), content);
