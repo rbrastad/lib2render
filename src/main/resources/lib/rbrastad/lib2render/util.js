@@ -1,5 +1,4 @@
 var portal = require('/lib/xp/portal');
-var auth = require('/lib/xp/auth');
 
 exports.sortRandom = function(content) {
 
@@ -117,16 +116,3 @@ exports.toArray = function ( content ){
     }
 };
 
-exports.getUser = function(){
-    var user = auth.getUser();
-    user.memberships = auth.getMemberships( user.key );
-
-    return user;
-}
-
-exports.getUserWithMemberships = function(){
-    var user = exports.getUser();
-    user.memberships = auth.getMemberships( user.key );
-
-    return user;
-}
