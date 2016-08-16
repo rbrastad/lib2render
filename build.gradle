@@ -33,6 +33,7 @@ dependencies {
     compile "com.enonic.xp:lib-portal:${xpVersion}"
     compile "com.enonic.xp:lib-thymeleaf:${xpVersion}"
     compile "com.enonic.xp:lib-mail:${xpVersion}"
+    compile "com.enonic.xp:lib-auth:${xpVersion}"
     compile "com.enonic.lib:util:1.1.1"
     compile "com.enonic.lib:menu:1.1.1"
 }
