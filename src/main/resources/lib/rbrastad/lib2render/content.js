@@ -85,7 +85,7 @@ exports.getContentByKey = function(key) {
 };
 
 
-exports.getChildren = function(key, start, count, contentTypes) {
+exports.getChildren = function(key, start, count, contentTypes, sort) {
     var result = null;
     var query = {};
 
@@ -100,6 +100,9 @@ exports.getChildren = function(key, start, count, contentTypes) {
 
     if(contentTypes != undefined)
         query['contentTypes'] = contentTypes;
+
+    if(sort != undefined)
+        query['sort'] = sort;
 
     result = content.getChildren( query );
     result = exports.deleteEmptyProperties( result);
