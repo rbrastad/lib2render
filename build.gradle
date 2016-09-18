@@ -36,6 +36,9 @@ dependencies {
     compile "com.enonic.xp:lib-auth:${xpVersion}"
     compile "com.enonic.lib:util:1.1.1"
     compile "com.enonic.lib:menu:1.1.1"
+
+    testCompile 'junit:junit:4.12'
+    testCompile "com.enonic.xp:testing:${xpVersion}"
 }
 
 repositories {
