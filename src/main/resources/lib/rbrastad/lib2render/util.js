@@ -53,11 +53,11 @@ exports.getAssetUrl = function( path, params ,application, type ){
 }
 
 exports.getAssetScriptUrl = function( path, params ,application, type ){
-    return '<script type="text/javascript" src="' + exports.getAssetUrl( path, application, type, params ) + '"></script>';
+    return '<script type="text/javascript" src="' + exports.getAssetUrl( path, params ,application, type ) + '"></script>';
 }
 
 exports.getAssetCssUrl = function( path, params ,application, type ){
-    return ' <link href="' + exports.getAssetUrl( path, application, type, params )  +  '" rel="stylesheet">';
+    return ' <link href="' + exports.getAssetUrl( path, params ,application, type )  +  '" rel="stylesheet">';
 }
 
 
