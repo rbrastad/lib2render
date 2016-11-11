@@ -34,7 +34,7 @@ exports.getServiceUrl = function(module, service){
 }
 
 
-exports.getAssetUrl = function( path, application, type, params ){
+exports.getAssetUrl = function( path, params ,application, type ){
     var data = {};
 
     if(path != undefined)
@@ -52,11 +52,11 @@ exports.getAssetUrl = function( path, application, type, params ){
     return portal.assetUrl(data);
 }
 
-exports.getAssetScriptUrl = function( path, application, type, params ){
+exports.getAssetScriptUrl = function( path, params ,application, type ){
     return '<script type="text/javascript" src="' + exports.getAssetUrl( path, application, type, params ) + '"></script>';
 }
 
-exports.getAssetCssUrl = function( path, application, type, params ){
+exports.getAssetCssUrl = function( path, params ,application, type ){
     return ' <link href="' + exports.getAssetUrl( path, application, type, params )  +  '" rel="stylesheet">';
 }
 
