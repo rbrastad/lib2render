@@ -34,15 +34,32 @@ exports.getServiceUrl = function(module, service){
 }
 
 
-exports.getAssetUrl = function( path ){
-    return portal.assetUrl({
-        path: path
-    });
+exports.getAssetUrl = function( path, application, type, params ){
+    var data = {};
+
+    if(path != undefined)
+        data.path = path;
+
+    if(application != undefined)
+        data.application = application;
+
+    if(type != undefined)
+        data.type = type;
+
+    if(params != undefined)
+        data.params = params;
+
+    return portal.assetUrl(data);
 }
 
-exports.getAssetScriptUrl = function( path ){
-    return '<script type="text/javascript" src="' + exports.getAssetUrl( path ) + '"></script>';
+exports.getAssetScriptUrl = function( path, application, type, params ){
+    return '<script type="text/javascript" src="' + exports.getAssetUrl( path, application, type, params ) + '"></script>';
 }
+
+exports.getAssetCssUrl = function( path, application, type, params ){
+    return ' <link href="' + exports.getAssetUrl( path, application, type, params )  +  '" rel="stylesheet">';
+}
+
 
 exports.getImageUrl = function( imageId, scaleling ){
     return portal.imageUrl( {
