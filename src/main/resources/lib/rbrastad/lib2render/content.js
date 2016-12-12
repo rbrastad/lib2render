@@ -1,5 +1,6 @@
 var portal = require('/lib/xp/portal');
 var content = require('/lib/xp/content');
+var util = require('/lib/rbrastad/lib2render/util');
 
 exports.contentResult = new Array();
 
@@ -150,3 +151,29 @@ exports.convArrToObj = function(array){
     }
     return thisEleObj;
 };
+
+
+exports.createMedia  = function( content ){
+    var multipartForm = portal.getMultipartForm();
+
+    var files = util.toArray(multipartForm.file);
+    if(files.length != 0) {
+        files.forEach(function (entry, index) {
+            try {
+                var item = portalLib.getMultipartItem('file', index);
+                var stream = portalLib.getMultipartStream('file', index);
+
+                var attachment = contentLib.createMedia({
+                    name: item.fileName,
+                    parentPath: content["_path"],
+                    mimeType: item.contentType,
+                    data: stream
+                })
+
+            }
+            catch (e) {
+                log.error('lib2render.content.createMedia: %s', e);
+            }
+        });
+    }
+}
