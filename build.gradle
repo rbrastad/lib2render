@@ -49,12 +49,9 @@ repositories {
     }
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
+    user = "$bintrayUser"
+    key = "$bintrayApiKey"
     pkg {
         repo = 'XP'
         name = project.appName

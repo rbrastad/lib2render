@@ -160,10 +160,10 @@ exports.createMedia  = function( content ){
     if(files.length != 0) {
         files.forEach(function (entry, index) {
             try {
-                var item = portalLib.getMultipartItem('file', index);
-                var stream = portalLib.getMultipartStream('file', index);
+                var item = portal.getMultipartItem('file', index);
+                var stream = portal.getMultipartStream('file', index);
 
-                var attachment = contentLib.createMedia({
+                var attachment = content.createMedia({
                     name: item.fileName,
                     parentPath: content["_path"],
                     mimeType: item.contentType,
