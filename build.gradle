@@ -52,6 +52,7 @@ repositories {
 bintray {
     user = "$bintrayUser"
     key = "$bintrayApiKey"
+    publish = true
     pkg {
         repo = 'XP'
         name = project.appName
