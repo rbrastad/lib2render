@@ -54,7 +54,7 @@ bintray {
     key = "$bintrayApiKey"
     publish = true
     pkg {
-        repo = 'XP'
+        repo = 'enonic'
         name = project.appName
         userOrg = 'rbrastad'
         licenses = ['Apache-2.0']
